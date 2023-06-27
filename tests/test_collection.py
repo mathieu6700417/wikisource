@@ -1,6 +1,6 @@
 import unittest, os
-from wikicorpus.collection import SourceCollection
-from wikicorpus.source import WikiSource
+from wikisource.collection import SourceCollection
+from wikisource.source import WikiSource
 
 url_rousseau = "https://fr.wikisource.org/wiki/Les_Confessions_(Rousseau)"
 url_nietzsche = "https://fr.wikisource.org/wiki/L%E2%80%99Origine_de_la_Trag%C3%A9die"

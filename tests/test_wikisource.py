@@ -1,5 +1,5 @@
 import unittest, os
-from wikicorpus.source import WikiSource
+from wikisource.source import WikiSource
 
 sources = dict(
     rousseau = dict(url="https://fr.wikisource.org/wiki/Les_Confessions_(Rousseau)",

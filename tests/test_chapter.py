@@ -1,5 +1,5 @@
 import unittest
-from wikicorpus.chapter import Chapter
+from wikisource.chapter import Chapter
 
 class WhenSearchingChapter(unittest.TestCase):
     def test_it_should_return_matching_paragraphs(self):
