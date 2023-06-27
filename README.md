@@ -1,6 +1,6 @@
-# WikiCorpus
+# WikiSource
 
-WikiCorpus is a python package to help search the [Wikisource Books](https://wikisource.org/wiki/Main_Page)
+wikisource is a python package to help search the [Wikisource Books](https://wikisource.org/wiki/Main_Page)
 
 It offers a few classes to help find sentences in a book, or in a book collection. 
 
