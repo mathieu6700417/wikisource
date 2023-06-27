@@ -6,6 +6,7 @@ from .webpage import WebPage
 import json
 from dataclasses import dataclass
 from typing import Optional
+from urllib.parse import unquote
 
 @dataclass
 class ChapterLink:
@@ -29,9 +30,10 @@ class WikiSource(WebPage):
         """
 
         super().__init__(url)
-        self.book_id = url.split('/')[-1]
+        route = self.url.split('//')[1]
+        self.book_id = "/".join(route.split('/')[2:])
         self.download_folder = download_folder
-        self.download_path = f"{self.download_folder}/{self.book_id}__info.txt"
+        self.download_path = f"{self.download_folder}/{self.book_id.replace('/', '_')}_info_____.txt"
         self.chapters = list()
 
     def read(self): 
@@ -88,7 +90,10 @@ class WikiSource(WebPage):
             a_tags = content_div.find_all('a')
             for a_tag in a_tags:
                 href = a_tag.get('href')
-                if href and href.startswith(f"/wiki/{self.book_id}") and not(re.match(r".*\.(djvu|svg).*", href)):
+                print(href and unquote(href), unquote(f"/wiki/{self.book_id}"), href and unquote(href).startswith(unquote(f"/wiki/{self.book_id}")))
+                if href and unquote(href).startswith(unquote(f"/wiki/{self.book_id}")) and \
+                        not(re.match(r".*\.(djvu|svg).*", href)) and \
+                        not unquote(href) == unquote(self.url):
                     self.chapter_links.append(ChapterLink(url=f"https://fr.wikisource.org{href}", title=a_tag.text))
 
 
