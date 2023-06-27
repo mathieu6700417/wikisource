@@ -1,14 +1,15 @@
 [project]
 name = "wikisource"
-version = "0.0.4"
+version = "0.0.5"
 authors = [ 
     { name = "Mathieu G.", email = "mathieu6700417@gmail.com" }
 ]
-description = "A wrapper around wikisource to search in books and books collections available on wikisource.org"
+description = "A python package to search in books available on wikisource.org"
 dependencies = [
     "requests",
     "bs4"
 ]
+readme = "README.md"
 
 [project.urls]
 "Homepage" = "https://github.com/mathieu6700417/wikisource"
