@@ -90,7 +90,6 @@ class WikiSource(WebPage):
             a_tags = content_div.find_all('a')
             for a_tag in a_tags:
                 href = a_tag.get('href')
-                print(href and unquote(href), unquote(f"/wiki/{self.book_id}"), href and unquote(href).startswith(unquote(f"/wiki/{self.book_id}")))
                 if href and unquote(href).startswith(unquote(f"/wiki/{self.book_id}")) and \
                         not(re.match(r".*\.(djvu|svg).*", href)) and \
                         not unquote(href) == unquote(self.url):
