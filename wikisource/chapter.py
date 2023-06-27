@@ -6,7 +6,21 @@ import re, os
 
 
 class Chapter(WebPage):
-    def __init__(self, title, url, download_folder="/tmp"):
+    """ A wikisource chapter 
+
+    It is matching a wikisource web page which contains the chapter of a book. 
+    """
+
+    def __init__(self, title:str, url:str, download_folder:str="/tmp"):
+        """ Initializes a chapter object.
+
+        :param title: The title of the chapter.
+        :type title: str
+        :param url: The url of the chapter.
+        :type url: str
+        :param download_folder: (optional) The folder where the chapter will be downloaded.
+        :type download_folder: str
+        """
         super().__init__(url)
         self.title = title
         self.paragraphs = list()
@@ -18,6 +32,14 @@ class Chapter(WebPage):
         self.paragraphs = [Paragraph(paragraph) for paragraph in self.read_chapter_paragraphs()]
 
     def search(self, query):
+        """ Search for a query in the chapter paragraphs.
+
+        :param query: The query to search for.
+        :type query: str
+        :return: A list of results.
+        :rtype: List[SearchResult]
+        """
+        
         results = list()
         for i, paragraph in enumerate(self.paragraphs):
             paragraph_results = paragraph.search(query)

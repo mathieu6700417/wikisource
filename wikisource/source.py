@@ -11,8 +11,22 @@ class ChapterLink:
     title: str
     url: str
 
+
 class WikiSource(WebPage):
+    """A wikisource book.
+
+    It is matching a wikisource web page which contains the table of contents of a book.
+    """
+
     def __init__(self, url, download_folder="/tmp"):
+        """Initializes a wikisource book object.
+
+        :param url: The url of the book.
+        :type url: str
+        :param download_folder: (optional) The folder where the book will be downloaded.
+        :type download_folder: str
+        """
+
         super().__init__(url)
         self.book_id = url.split('/')[-1]
         self.download_folder = download_folder
@@ -20,6 +34,8 @@ class WikiSource(WebPage):
         self.chapters = list()
 
     def read(self): 
+        """Reads the book online or from the downloaded files."""
+
         self.read_info()
         self.read_chapters()
 
@@ -76,6 +92,18 @@ class WikiSource(WebPage):
 
 
     def search(self, query, num_max_results=None, num_max_sentences_per_chapter=None):
+        """Search for a query in the book.
+
+        :param query: The query to search for.
+        :type query: str
+        :param num_max_results: (optional) The maximum number of results to return.
+        :type num_max_results: int
+        :param num_max_sentences_per_chapter: (optional) The maximum number of sentences to return per chapter.
+        :type num_max_sentences_per_chapter: int
+        :return: A list of results.
+        :rtype: List[SearchResult]
+        """
+
         results = list()
         for i_chap, chapter in enumerate(self.chapters):
             chapter_results = chapter.search(query)

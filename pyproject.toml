@@ -1,6 +1,6 @@
 [project]
 name = "wikisource"
-version = "0.0.5"
+version = "0.0.6"
 authors = [ 
     { name = "Mathieu G.", email = "mathieu6700417@gmail.com" }
 ]
