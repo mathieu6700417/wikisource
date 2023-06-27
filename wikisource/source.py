@@ -5,6 +5,7 @@ from .chapter import Chapter
 from .webpage import WebPage
 import json
 from dataclasses import dataclass
+from typings import Optional
 
 @dataclass
 class ChapterLink:
@@ -18,7 +19,7 @@ class WikiSource(WebPage):
     It is matching a wikisource web page which contains the table of contents of a book.
     """
 
-    def __init__(self, url, download_folder="/tmp"):
+    def __init__(self, url:str, download_folder:str="/tmp"):
         """Initializes a wikisource book object.
 
         :param url: The url of the book.
@@ -91,7 +92,10 @@ class WikiSource(WebPage):
                     self.chapter_links.append(ChapterLink(url=f"https://fr.wikisource.org{href}", title=a_tag.text))
 
 
-    def search(self, query, num_max_results=None, num_max_sentences_per_chapter=None):
+    def search(self, 
+               query, 
+               num_max_results:Optional[int]=None, 
+               num_max_sentences_per_chapter:Optional[int]=None):
         """Search for a query in the book.
 
         :param query: The query to search for.
