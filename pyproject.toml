@@ -1,5 +1,5 @@
 [project]
-name = "wikicorpus"
+name = "wikisource"
 version = "0.0.1"
 dependencies = [
     "requests",
