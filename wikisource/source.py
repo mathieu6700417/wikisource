@@ -5,7 +5,7 @@ from .chapter import Chapter
 from .webpage import WebPage
 import json
 from dataclasses import dataclass
-from typings import Optional
+from typing import Optional
 
 @dataclass
 class ChapterLink:
