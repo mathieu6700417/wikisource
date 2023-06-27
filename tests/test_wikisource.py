@@ -64,7 +64,7 @@ class WhenUsingWikiSourceToSearch(unittest.TestCase):
         wiki_source = WikiSource(sources["rousseau"])
         wiki_source.read()
         results = wiki_source.search("désir")
-        self.assertEqual(len(results), 133)
+        self.assertEqual(len(results), 52)
         
         results = wiki_source.search("désir", num_max_sentences_per_chapter=1)
         self.assertEqual(len(results), 13)

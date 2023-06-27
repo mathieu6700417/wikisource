@@ -21,5 +21,7 @@ class Paragraph:
         :return: A list of results.
         :rtype: List[SearchResult]
         """
-        return [sentence for sentence in self.sentences if query in sentence]
+
+        rex = re.compile(f".*\\b{query}\\b.*", re.IGNORECASE)
+        return [sentence for sentence in self.sentences if re.match(rex, sentence)]
 
